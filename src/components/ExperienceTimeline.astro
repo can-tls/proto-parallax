@@ -1,0 +1,145 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+
+interface Props {
+	entries: CollectionEntry<'experience'>[];
+}
+
+const { entries } = Astro.props;
+
+const sortedEntries = [...entries].sort((left, right) => left.data.order - right.data.order);
+
+const renderedEntries = await Promise.all(
+	sortedEntries.map(async (entry) => { 
+		const { Content } = await render(entry);
+
+		return {
+			entry,
+			Content,
+		};
+	}),
+);
+---
+
+<section class="experience-section" aria-labelledby="experience-title">
+	<div class="section-head">
+		<h2 id="experience-title">Berufserfahrung</h2>
+	</div>
+
+	<div class="timeline">
+		{renderedEntries.map(({ entry, Content }) => (
+			<article class="experience-item">
+				<div >
+					
+				</div>
+
+				<div class="card">
+					<header class="card-head">
+						<div>
+							<p class="role">{entry.data.role}</p>
+							<h3>{entry.data.company}</h3>
+						</div>
+
+						<div class="meta">
+							<p>{entry.data.location}</p>
+							{entry.data.period ? <p>{entry.data.period}</p> : null}
+						</div>
+					</header>
+
+					<div class="content">
+						<Content />
+					</div>
+				</div>
+			</article>
+		))}
+	</div>
+</section>
+
+<style>
+	.experience-section {
+		display: grid;
+		gap: 24px;
+	}
+
+	.section-head {
+		display: grid;
+		gap: 6px;
+	}
+
+	h2 {
+		margin: 0;
+		font-size: 1.45rem;
+		line-height: 1.1;
+	}
+
+	.timeline {
+		display: grid;
+		gap: 20px;
+	}
+
+	.card {
+		display: grid;
+		gap: 14px;
+		padding: 18px 18px 20px;
+		border-radius: 18px;
+		background: rgba(73, 16, 16, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.card-head {
+		display: flex;
+		justify-content: space-between;
+		gap: 20px;
+		align-items: start;
+	}
+
+	.role {
+		margin: 0 0 4px;
+		font-size: 0.86rem;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+	}
+
+	h3 {
+		margin: 0;
+		font-size: 1.2rem;
+		line-height: 1.2;
+	}
+
+	.meta {
+		text-align: right;
+		font-size: 0.92rem;
+		line-height: 1.4;
+	}
+
+	.meta p {
+		margin: 0;
+	}
+
+	.content :global(p) {
+		margin: 0;
+		line-height: 1.6;
+	}
+
+	.content :global(ul) {
+		margin: 0;
+		padding-left: 1.2rem;
+		display: grid;
+		gap: 8px;
+	}
+
+	.content :global(li) {
+		line-height: 1.5;
+	}
+
+	@media (max-width: 720px) {
+		.card-head {
+			flex-direction: column;
+		}
+
+		.meta {
+			text-align: left;
+		}
+	}
+</style>

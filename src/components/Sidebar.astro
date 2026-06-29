@@ -1,3 +1,7 @@
+---
+import { profile } from "../data/profile";
+---
+
 <section class="sidebar-card" aria-label="Persönliche Daten">
 	<h2>Persönliche Daten</h2>
 
@@ -11,7 +15,7 @@
 			</span>
 			<div>
 				<p class="label">Name</p>
-				<p class="value">Can Talas</p>
+				<p class="value">{profile.name}</p>
 			</div>
 		</li>
 
@@ -25,8 +29,8 @@
 			</span>
 			<div>
 				<p class="label">Adresse</p>
-				<p class="value">Urbanstraße 48 D</p>
-				<p class="value">Berlin, 10967</p>
+				<p class="value">{profile.addressLine1}</p>
+				<p class="value">{profile.addressLine2}</p>
 			</div>
 		</li>
 
@@ -38,7 +42,7 @@
 			</span>
 			<div>
 				<p class="label">Telefonnummer</p>
-				<p class="value">+49 1794107700</p>
+				<p class="value">{profile.phone}</p>
 			</div>
 		</li>
 
@@ -51,7 +55,7 @@
 			</span>
 			<div>
 				<p class="label">E-Mail-Adresse</p>
-				<p class="value">talascan@googlemail.com</p>
+				<p class="value">{profile.email}</p>
 			</div>
 		</li>
 
@@ -65,7 +69,7 @@
 			</span>
 			<div>
 				<p class="label">Geburtsdatum</p>
-				<p class="value">5.6.1995</p>
+				<p class="value">{profile.birthDate}</p>
 			</div>
 		</li>
 
@@ -80,7 +84,7 @@
 			</span>
 			<div>
 				<p class="label">Führerschein</p>
-				<p class="value">B</p>
+				<p class="value">{profile.driverLicense}</p>
 			</div>
 		</li>
 	</ul>
