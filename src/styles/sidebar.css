@@ -1,0 +1,91 @@
+.sidebar-card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 16px;
+}
+
+.details li {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 12px;
+    margin: -3px 0;
+    align-items: start;
+}
+
+.icon {
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.95);
+    margin-top: 2px;
+}
+
+.icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.label {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.value {
+    margin: 2px 0 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.value + .value {
+    margin-top: -4;
+}
+
+.skills {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.skill {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: .5rem;
+}
+
+.rating {
+display: flex;
+gap: 4px;
+}
+
+.dot {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: #333;
+}
+
+.dot.active {
+background: #cfcfcf;
+}
