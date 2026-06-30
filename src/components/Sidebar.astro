@@ -1,5 +1,6 @@
 ---
 import { profile } from "../data/profile";
+import { skills } from "../data/skills";
 ---
 
 <section class="sidebar-card" aria-label="Persönliche Daten">
@@ -88,6 +89,22 @@ import { profile } from "../data/profile";
 			</div>
 		</li>
 	</ul>
+	<h2>Fähigkeiten</h2>
+  <ul class="skills">
+    {
+      skills.map((skill) => (
+        <li class="skill">
+          <span>{skill.name}</span>
+
+          <div class="rating">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <span class={index < skill.level ? "dot active" : "dot"}></span>
+            ))}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
 </section>
 
 <style>
@@ -152,4 +169,33 @@ import { profile } from "../data/profile";
 	.value + .value {
 		margin-top: 0;
 	}
+
+  .skills {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .skill {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem;
+  }
+
+  .rating {
+    display: flex;
+    gap: 4px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #333;
+  }
+
+  .dot.active {
+    background: #cfcfcf;
+  }
 </style>
