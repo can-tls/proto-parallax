@@ -4,8 +4,8 @@ export const profile = {
   location: "Berlin",
   addressLine1: "Urbanstraße 48 D",
   addressLine2: "Berlin, 10967",
-  birthDate: "5.6.1995",
-  driverLicense: "B",
+  birthDate: "05.06.1995",
+  driverLicense: "B - 197",
 
   email: "talascan@gmail.com",
 
