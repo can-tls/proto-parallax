@@ -1,7 +1,7 @@
 ---
 import { profile } from "../data/profile";
 import { skills } from "../data/skills";
-import Icon from "./Icons.astro";
+import Icon from "../components/Icons";
 ---
 
 <section class="sidebar-card" aria-label="Persönliche Daten">
@@ -9,7 +9,7 @@ import Icon from "./Icons.astro";
 
 	<ul class="details">
 		<li>
-      <Icon name="name" />
+			<span class="icon" aria-hidden="true" set:html={Icon({ name: "name" })}></span>
 			<div>
 				<p class="label">Name</p>
 				<p class="value">{profile.name}</p>
@@ -17,7 +17,7 @@ import Icon from "./Icons.astro";
 		</li>
 
 		<li>
-      <Icon name="address" />
+			<span class="icon" aria-hidden="true" set:html={Icon({ name: "address" })}></span>
 			<div>
 				<p class="label">Adresse</p>
 				<p class="value">{profile.addressLine1}</p>
@@ -26,7 +26,7 @@ import Icon from "./Icons.astro";
 		</li>
 
 		<li>
-      <Icon name="phone" />
+			<span class="icon" aria-hidden="true" set:html={Icon({ name: "phone" })}></span>
 			<div>
 				<p class="label">Telefonnummer</p>
 				<p class="value">{profile.phone}</p>
@@ -34,7 +34,7 @@ import Icon from "./Icons.astro";
 		</li>
 
 		<li>
-      <Icon name="email" />
+			<span class="icon" aria-hidden="true" set:html={Icon({ name: "email" })}></span>
 			<div>
 				<p class="label">E-Mail-Adresse</p>
 				<p class="value">{profile.email}</p>
@@ -42,7 +42,7 @@ import Icon from "./Icons.astro";
 		</li>
 
 		<li>
-      <Icon name="birthDate" />
+			<span class="icon" aria-hidden="true" set:html={Icon({ name: "birthDate" })}></span>
 			<div>
 				<p class="label">Geburtsdatum</p>
 				<p class="value">{profile.birthDate}</p>
@@ -50,7 +50,7 @@ import Icon from "./Icons.astro";
 		</li>
 
 		<li>
-      <Icon name="driverLicense" />
+			<span class="icon" aria-hidden="true" set:html={Icon({ name: "driverLicense" })}></span>
 			<div>
 				<p class="label">Führerschein</p>
 				<p class="value">{profile.driverLicense}</p>
