@@ -1,6 +1,6 @@
 ---
 company: Freelance
-role: Fullstack Developer
+role: Web-/Software Developer
 location: Berlin
 period: Dez. 2021 - 2023
 order: 3

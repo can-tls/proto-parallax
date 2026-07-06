@@ -23,6 +23,7 @@ const renderedEntries = await Promise.all(
 ---
 
 <section class="experience-section" aria-labelledby="experience-title">
+	<div class="divider"></div>
 	<div class="section-head">
 		<h2 id="experience-title">Berufserfahrung</h2>
 	</div>
@@ -54,32 +55,37 @@ const renderedEntries = await Promise.all(
 			</article>
 		))}
 	</div>
+	<div class="divider"></div>
 </section>
 
 <style>
 	.experience-section {
-		display: grid;
+		display: flex;
+		flex-direction: column;
 		gap: 24px;
 	}
 
 	.section-head {
-		display: grid;
+		display: flex;
+		flex-direction: column;
 		gap: 6px;
 	}
 
 	h2 {
 		margin: 0;
-		font-size: 1.45rem;
-		line-height: 1.1;
+		font-size: 1.25rem;
+		line-height: 0.2;
 	}
 
 	.timeline {
-		display: grid;
+		display: flex;
+		flex-direction: column;
 		gap: 20px;
 	}
 
 	.card {
-		display: grid;
+		display: flex;
+		flex-direction: column;
 		gap: 14px;
 		padding: 18px 18px 20px;
 		border-radius: 18px;
@@ -98,12 +104,12 @@ const renderedEntries = await Promise.all(
 		margin: 0 0 4px;
 		font-size: 0.86rem;
 		text-transform: uppercase;
-		letter-spacing: 0.12em;
+		letter-spacing: 0.05em;
 	}
 
 	h3 {
 		margin: 0;
-		font-size: 1.2rem;
+		font-size: 1.1rem;
 		line-height: 1.2;
 	}
 
@@ -119,14 +125,17 @@ const renderedEntries = await Promise.all(
 
 	.content :global(p) {
 		margin: 0;
-		line-height: 1.6;
+		line-height: 1.2;
+		font-size: 0.9rem;
 	}
 
 	.content :global(ul) {
 		margin: 0;
-		padding-left: 1.2rem;
-		display: grid;
-		gap: 8px;
+		padding: 1rem 0 0 1.2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1px;
+		font-size: 0.8rem;
 	}
 
 	.content :global(li) {
@@ -141,5 +150,9 @@ const renderedEntries = await Promise.all(
 		.meta {
 			text-align: left;
 		}
+	}
+	.divider {
+		height: 1px;
+		background: #cfcfcf;
 	}
 </style>

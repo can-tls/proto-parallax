@@ -30,21 +30,25 @@
 	}
 
 	.cv {
-		display: grid;
-		grid-template-columns: 250px 1fr;
-		max-width: 1000px;
+		display: flex;
+		width: 210mm;
+		height: 297mm;
 		margin: auto;
 		background: rgba(233, 230, 230, 0.596);
 		color: #111827;
 	}
 
 	.sidebar {
+		flex-shrink: 0;
+		width: 220px;
 		background: #3f4a54;
 		color: white;
 		padding: 20px;
 	}
 
 	.content {
+		flex: 1;
+		overflow: auto;
 		padding: 30px;
 	}
 </style>

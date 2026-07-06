@@ -89,3 +89,15 @@ background: #333;
 .dot.active {
 background: #cfcfcf;
 }
+
+.page {
+  position: relative;
+}
+
+.profile-image {
+  width: 214px;
+  height: 214px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+}
