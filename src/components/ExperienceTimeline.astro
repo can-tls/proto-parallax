@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { profile } from "../data/profile";
 import { render } from 'astro:content';
 
 interface Props {
@@ -23,6 +24,9 @@ const renderedEntries = await Promise.all(
 ---
 
 <section class="experience-section" aria-labelledby="experience-title">
+	<div class="content">
+		<p>{profile.summary}</p>
+	</div>
 	<div class="divider"></div>
 	<div class="section-head">
 		<h2 id="experience-title">Berufserfahrung</h2>
@@ -31,10 +35,6 @@ const renderedEntries = await Promise.all(
 	<div class="timeline">
 		{renderedEntries.map(({ entry, Content }) => (
 			<article class="experience-item">
-				<div >
-					
-				</div>
-
 				<div class="card">
 					<header class="card-head">
 						<div>
