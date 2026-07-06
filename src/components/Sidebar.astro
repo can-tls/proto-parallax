@@ -59,19 +59,19 @@ import Icon from "../components/Icons";
 	</ul>
 
 	<h2>Fähigkeiten</h2>
-  <ul class="skills">
-    {
-      skills.map((skill) => (
-        <li class="skill">
-          <span>{skill.name}</span>
+  	<ul class="skills">
+		{
+		skills.map((skill) => (
+			<li class="skill">
+			<span>{skill.name}</span>
 
-          <div class="rating">
-            {Array.from({ length: 5 }).map((_, index) => (
-              <span class={index < skill.level ? "dot active" : "dot"}></span>
-            ))}
-          </div>
-        </li>
-      ))
-    }
-  </ul>
+			<div class="rating">
+				{Array.from({ length: 5 }).map((_, index) => (
+				<span class={index < skill.level ? "dot active" : "dot"}></span>
+				))}
+			</div>
+			</li>
+		))
+		}
+	</ul>
 </section>
