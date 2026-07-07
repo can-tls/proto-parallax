@@ -2,12 +2,11 @@
 company: Freelance
 role: Web-/Software Developer
 location: Berlin
-period: Dez. 2021 - 2023
-order: 3
+period: 2020 - 2025
+order: 1
 ---
 
-In der freiberuflichen Arbeit standen flexible Umsetzung, saubere Architektur und die schnelle Lieferung sichtbarer Ergebnisse im Vordergrund.
+In der freiberuflichen Arbeit standen flexible Umsetzung und die schnelle Lieferung sichtbarer Ergebnisse im Vordergrund.
 
 - Umsetzung individueller Webprojekte
-- Aufbau wiederverwendbarer Komponentenstrukturen
-- Direkter Kontakt mit Auftraggebern und schnelle Iterationen
+- Aufbau wiederverwendbarer Komponenten (z.B. BookPay )

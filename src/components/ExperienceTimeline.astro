@@ -62,7 +62,7 @@ const renderedEntries = await Promise.all(
 	.experience-section {
 		display: flex;
 		flex-direction: column;
-		gap: 24px;
+		gap: 18px;
 	}
 
 	.section-head {
@@ -80,14 +80,14 @@ const renderedEntries = await Promise.all(
 	.timeline {
 		display: flex;
 		flex-direction: column;
-		gap: 20px;
+		gap: 12px;
 	}
 
 	.card {
 		display: flex;
 		flex-direction: column;
-		gap: 14px;
-		padding: 18px 18px 20px;
+		gap: 10px;
+		padding: 8px 18px;
 		border-radius: 18px;
 		background: rgba(73, 16, 16, 0.04);
 		border: 1px solid rgba(255, 255, 255, 0.08);
@@ -126,15 +126,14 @@ const renderedEntries = await Promise.all(
 	.content :global(p) {
 		margin: 0;
 		line-height: 1.2;
-		font-size: 0.9rem;
+		font-size: 0.7rem;
 	}
 
 	.content :global(ul) {
 		margin: 0;
-		padding: 1rem 0 0 1.2rem;
+		padding: 0.4rem 0 0 1.2rem;
 		display: flex;
 		flex-direction: column;
-		gap: 1px;
 		font-size: 0.8rem;
 	}
 
@@ -152,6 +151,7 @@ const renderedEntries = await Promise.all(
 		}
 	}
 	.divider {
+		margin-top: -0.5rem;
 		height: 1px;
 		background: #cfcfcf;
 	}

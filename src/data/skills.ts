@@ -1,6 +1,6 @@
 export const skills = [
     {
-        name: "C#",
+        name: "C#/.Net",
         level: 4
     },
     {
@@ -12,7 +12,7 @@ export const skills = [
         level: 3
     },
     {
-        name: "TypeScript",
+        name: "Type-/JavaScript",
         level: 3
     },
     {
@@ -20,11 +20,19 @@ export const skills = [
         level: 3
     },
     {
-        name: "MongoDB",
+        name: "Datenbanken",
         level: 2
     },
     {
-        name: "PostgreSQL",
-        level: 2
+        name: "Linux",
+        level: 3
+    },
+    {
+        name: "Git",
+        level: 4
+    },
+    {
+        name: "Englisch",
+        level: 5
     }
 ]

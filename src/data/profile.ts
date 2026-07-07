@@ -12,5 +12,5 @@ export const profile = {
   phone: "+491794107700",
 
   summary:
-    "Engagierter Fullstack Entwickler mit 4 Jahren Erfahrung in der Entwicklung von Webanwendungen. \nLeidenschaftlich daran interessiert, innovative Lösungen zu schaffen und die Benutzererfahrung zu verbessern. Schwerpunkt meiner bisherigen Arbeit liegt auf der Schnittstellenentwicklung",
+    "Engagierter Fullstack Entwickler mit 4 Jahren Erfahrung in der Entwicklung von Webanwendungen. Leidenschaftlich daran interessiert, innovative Lösungen zu schaffen und die Benutzererfahrung zu verbessern. Schwerpunkt meiner bisherigen Arbeit liegt auf der Schnittstellenentwicklung",
 }
