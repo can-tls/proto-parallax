@@ -16,6 +16,20 @@ const experience = defineCollection({
     }),
 });
 
+const education = defineCollection({
+    loader: glob({
+        pattern: '**/*.md',
+        base: './src/content/education',
+    }),
+    schema: z.object({
+        type: z.string(),
+        location: z.string(),
+        period: z.string().optional(),
+        order: z.number().int(),
+    }),
+});
+
 export const collections = {
     experience,
+    education
 };

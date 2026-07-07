@@ -4,15 +4,29 @@ import { profile } from "../data/profile";
 import { render } from 'astro:content';
 
 interface Props {
-	entries: CollectionEntry<'experience'>[];
+	experience: CollectionEntry<'experience'>[];
+	education: CollectionEntry<'education'>[];
 }
 
-const { entries } = Astro.props;
+const { experience } = Astro.props as Props;
+const { education } = Astro.props as Props;
 
-const sortedEntries = [...entries].sort((left, right) => left.data.order - right.data.order);
+const sortedExperience = [...experience].sort((left, right) => left.data.order - right.data.order);
+const sortedEducation = [...education].sort((left, right) => left.data.order - right.data.order);
 
-const renderedEntries = await Promise.all(
-	sortedEntries.map(async (entry) => { 
+const renderedExperience = await Promise.all(
+	sortedExperience.map(async (entry) => {
+		const { Content } = await render(entry);
+
+		return {
+			entry,
+			Content,
+		};
+	}),
+);
+
+const renderedEducation = await Promise.all(
+	sortedEducation.map(async (entry) => {
 		const { Content } = await render(entry);
 
 		return {
@@ -24,8 +38,8 @@ const renderedEntries = await Promise.all(
 ---
 
 <section class="experience-section" aria-labelledby="experience-title">
-	<div class="content">
-		<p>{profile.summary}</p>
+	<div class="summary">
+		{profile.summary}
 	</div>
 	<div class="divider"></div>
 	<div class="section-head">
@@ -33,7 +47,7 @@ const renderedEntries = await Promise.all(
 	</div>
 
 	<div class="timeline">
-		{renderedEntries.map(({ entry, Content }) => (
+		{renderedExperience.map(({ entry, Content }) => (
 			<article class="experience-item">
 				<div class="card">
 					<header class="card-head">
@@ -54,8 +68,32 @@ const renderedEntries = await Promise.all(
 				</div>
 			</article>
 		))}
+
+		<div class="divider"></div>
+		<div class="section-head">
+			<h2 class="education-title">Ausbildung</h2>
+		</div>
+		{renderedEducation.map(({ entry, Content }) => (
+			<article class="experience-item">
+				<div class="card">
+					<header class="card-head">
+						<div>
+							<h3>{entry.data.type}</h3>
+						</div>
+
+						<div class="meta">
+							<p>{entry.data.location}</p>
+							{entry.data.period ? <p>{entry.data.period}</p> : null}
+						</div>
+					</header>
+
+					<div class="content">
+						<Content />
+					</div>
+				</div>
+			</article>
+		))}
 	</div>
-	<div class="divider"></div>
 </section>
 
 <style>
@@ -128,6 +166,11 @@ const renderedEntries = await Promise.all(
 		line-height: 1.2;
 		font-size: 0.7rem;
 	}
+	
+	.summary {
+		font-size: 0.7rem;
+		margin-bottom: -0.5rem;
+	}
 
 	.content :global(ul) {
 		margin: 0;
@@ -151,8 +194,10 @@ const renderedEntries = await Promise.all(
 		}
 	}
 	.divider {
-		margin-top: -0.5rem;
 		height: 1px;
 		background: #cfcfcf;
+	}
+	.education-title {
+		padding: 0.4rem 0;
 	}
 </style>

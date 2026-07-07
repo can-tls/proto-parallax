@@ -5,9 +5,10 @@ import Sidebar from '../components/Sidebar.astro';
 import Layout from '../layouts/Layout.astro';
 
 const experienceEntries = await getCollection('experience');
+const educationEntries = await getCollection('education');
 ---
 
 <Layout>
 	<Sidebar slot="sidebar" />
-	<ExperienceTimeline entries={experienceEntries} />
+	<ExperienceTimeline experience={experienceEntries} education={educationEntries} />
 </Layout>
