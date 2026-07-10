@@ -1,11 +1,7 @@
 ---
 type: Biotechnologie 
 location: Berlin
-period: Nov. 2024 - Dez. 2025
+period: Juni 2015 - Juni 2018
 order: 1
 ---
-
-Bei Datagroup...
-
-- Um..
-- ..
+(nicht abgeschlossen)

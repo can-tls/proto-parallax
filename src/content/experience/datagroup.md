@@ -6,8 +6,7 @@ period: Nov. 2024 - Dez. 2025
 order: 4
 ---
 
-Bei Datagroup...
+Ausbau effizienter Schnittstellen mit Verarbeitung großer Datenmengen sowie Unterstützung beim Erweitern der firmeneigenen Tools.
 
-- Um..
-- ..
-- ..
+- Ausbau interner Software in Java, Spring, Angular
+- Kundenprojekt Anbindung und Erstellen von APIs in .Net
