@@ -2,11 +2,15 @@
 import { profile } from "../data/profile";
 import { skills } from "../data/skills";
 import Icon from "./Icons.astro";
+import CustomImage from "./CustomImage.astro";
 ---
 
 <section class="sidebar-card" aria-label="Persönliche Daten">
 	<div class="page">
-		<img src="/proto-parallax/src/assets/profil.jpg" alt="Profilbild" class="profile-image" />
+		<CustomImage
+			imagePath="/src/assets/profil.jpg"
+			altText="Profilbild"
+		/>
 	</div>
 	<h2>Persönliche Daten</h2>
 
