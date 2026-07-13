@@ -14,5 +14,6 @@ export const profile = {
   summary:
     "Engagierter Fullstack Entwickler mit 4 Jahren Erfahrung in der Entwicklung von Webanwendungen. Leidenschaftlich daran interessiert, innovative Lösungen zu schaffen und die Benutzererfahrung zu verbessern. Schwerpunkt meiner bisherigen Arbeit liegt auf der Schnittstellenentwicklung",
 
-  knowledge: "Docker, Java, Tailwind/CSS, NodeJS, TDD, Scrum, DevOps, CMS, REST, Atlassian"
-  }
+  knowledge:
+    "Docker, Java, Tailwind/CSS, NodeJS, TDD, Scrum, DevOps, CMS, REST, Atlassian",
+};

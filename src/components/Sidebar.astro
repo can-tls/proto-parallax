@@ -6,180 +6,177 @@ import CustomImage from "./CustomImage.astro";
 ---
 
 <section class="sidebar-card" aria-label="Persönliche Daten">
-	<div class="page">
-		<CustomImage
-			imagePath="/src/assets/profil.jpg"
-			altText="Profilbild"
-		/>
-	</div>
-	<h2>Persönliche Daten</h2>
+  <div class="page">
+    <CustomImage imagePath="/src/assets/profil.jpg" altText="Profilbild" />
+  </div>
+  <h2>Persönliche Daten</h2>
 
-	<ul class="details">
-		<li>
-			<Icon name="name" />
-			<div>
-				<p class="label">Name</p>
-				<p class="value">{profile.name}</p>
-			</div>
-		</li>
+  <ul class="details">
+    <li>
+      <Icon name="name" />
+      <div>
+        <p class="label">Name</p>
+        <p class="value">{profile.name}</p>
+      </div>
+    </li>
 
-		<li>
-			<Icon name="address" />
-			<div>
-				<p class="label">Adresse</p>
-				<p class="value">{profile.addressLine1}</p>
-				<p class="value">{profile.addressLine2}</p>
-			</div>
-		</li>
+    <li>
+      <Icon name="address" />
+      <div>
+        <p class="label">Adresse</p>
+        <p class="value">{profile.addressLine1}</p>
+        <p class="value">{profile.addressLine2}</p>
+      </div>
+    </li>
 
-		<li>
-			<Icon name="phone" />
-			<div>
-				<p class="label">Telefonnummer</p>
-				<p class="value">{profile.phone}</p>
-			</div>
-		</li>
+    <li>
+      <Icon name="phone" />
+      <div>
+        <p class="label">Telefonnummer</p>
+        <p class="value">{profile.phone}</p>
+      </div>
+    </li>
 
-		<li>
-			<Icon name="email" />
-			<div>
-				<p class="label">E-Mail-Adresse</p>
-				<p class="value">{profile.email}</p>
-			</div>
-		</li>
+    <li>
+      <Icon name="email" />
+      <div>
+        <p class="label">E-Mail-Adresse</p>
+        <p class="value">{profile.email}</p>
+      </div>
+    </li>
 
-		<li>
-			<Icon name="birthDate" />
-			<div>
-				<p class="label">Geburtsdatum</p>
-				<p class="value">{profile.birthDate}</p>
-			</div>
-		</li>
+    <li>
+      <Icon name="birthDate" />
+      <div>
+        <p class="label">Geburtsdatum</p>
+        <p class="value">{profile.birthDate}</p>
+      </div>
+    </li>
 
-		<li>
-			<Icon name="driverLicense" />
-			<div>
-				<p class="label">Führerschein</p>
-				<p class="value">{profile.driverLicense}</p>
-			</div>
-		</li>
-	</ul>
+    <li>
+      <Icon name="driverLicense" />
+      <div>
+        <p class="label">Führerschein</p>
+        <p class="value">{profile.driverLicense}</p>
+      </div>
+    </li>
+  </ul>
 
-	<h2>Fähigkeiten</h2>
-  	<ul class="skills">
-		{
-		skills.map((skill) => (
-			<li class="skill">
-			<span>{skill.name}</span>
+  <h2>Fähigkeiten</h2>
+  <ul class="skills">
+    {
+      skills.map((skill) => (
+        <li class="skill">
+          <span>{skill.name}</span>
 
-			<div class="rating">
-				{Array.from({ length: 5 }).map((_, index) => (
-				<span class={index < skill.level ? "dot active" : "dot"}></span>
-				))}
-			</div>
-			</li>
-		))
-		}
-	</ul>
+          <div class="rating">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <span class={index < skill.level ? "dot active" : "dot"} />
+            ))}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
 
-	<h2>Kenntnisse</h2>
-	<p class="value">{profile.knowledge}</p>
+  <h2>Kenntnisse</h2>
+  <p class="value">{profile.knowledge}</p>
 </section>
 
 <style>
-	.sidebar-card {
-		display: flex;
-		flex-direction: column;
-		gap: 18px;
-	}
+  .sidebar-card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
 
-	h2 {
-		margin: 0;
-		font-size: 1rem;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		font-weight: 700;
-	}
+  h2 {
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
 
-	.details {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: grid;
-		gap: 16px;
-	}
+  .details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 16px;
+  }
 
-	.details li {
-		display: grid;
-		grid-template-columns: 22px 1fr;
-		gap: 12px;
-		margin: -3px 0;
-		align-items: start;
-	}
+  .details li {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 12px;
+    margin: -3px 0;
+    align-items: start;
+  }
 
-	.icon {
-		width: 22px;
-		height: 22px;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		color: rgba(255, 255, 255, 0.95);
-		margin-top: 2px;
-	}
+  .icon {
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.95);
+    margin-top: 2px;
+  }
 
-	.icon svg {
-		width: 20px;
-		height: 20px;
-	}
+  .icon svg {
+    width: 20px;
+    height: 20px;
+  }
 
-	.label {
-		margin: 0;
-		font-size: 0.9rem;
-		font-weight: 700;
-		line-height: 1.2;
-	}
+  .label {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
 
-	.value {
-		margin: 2px 0 0;
-		font-size: 0.95rem;
-		line-height: 1.4;
-		color: rgba(255, 255, 255, 0.85);
-	}
+  .value {
+    margin: 2px 0 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.85);
+  }
 
-	.value + .value {
-		margin-top: -4;
-	}
+  .value + .value {
+    margin-top: -4;
+  }
 
-	.skills {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	}
+  .skills {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 
-	.skill {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: .5rem;
-	}
+  .skill {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
 
-	.rating {
-	display: flex;
-	gap: 4px;
-	}
+  .rating {
+    display: flex;
+    gap: 4px;
+  }
 
-	.dot {
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: #333;
-	}
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #333;
+  }
 
-	.dot.active {
-	background: #cfcfcf;
-	}
+  .dot.active {
+    background: #cfcfcf;
+  }
 
-	.page {
-	position: relative;
-	}
+  .page {
+    position: relative;
+  }
 </style>

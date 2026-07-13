@@ -1,14 +1,17 @@
 ---
-import { getCollection } from 'astro:content';
-import ExperienceTimeline from '../components/ExperienceTimeline.astro';
-import Sidebar from '../components/Sidebar.astro';
-import Layout from '../layouts/Layout.astro';
+import { getCollection } from "astro:content";
+import ExperienceTimeline from "../components/ExperienceTimeline.astro";
+import Sidebar from "../components/Sidebar.astro";
+import Layout from "../layouts/Layout.astro";
 
-const experienceEntries = await getCollection('experience');
-const educationEntries = await getCollection('education');
+const experienceEntries = await getCollection("experience");
+const educationEntries = await getCollection("education");
 ---
 
 <Layout>
-	<Sidebar slot="sidebar" />
-	<ExperienceTimeline experience={experienceEntries} education={educationEntries} />
+  <Sidebar slot="sidebar" />
+  <ExperienceTimeline
+    experience={experienceEntries}
+    education={educationEntries}
+  />
 </Layout>

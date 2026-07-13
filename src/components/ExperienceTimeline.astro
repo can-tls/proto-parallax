@@ -1,204 +1,212 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 import { profile } from "../data/profile";
-import { render } from 'astro:content';
+import { render } from "astro:content";
 
 interface Props {
-	experience: CollectionEntry<'experience'>[];
-	education: CollectionEntry<'education'>[];
+  experience: CollectionEntry<"experience">[];
+  education: CollectionEntry<"education">[];
 }
 
 const { experience } = Astro.props as Props;
 const { education } = Astro.props as Props;
 
-const sortedExperience = [...experience].sort((left, right) => left.data.order - right.data.order);
-const sortedEducation = [...education].sort((left, right) => left.data.order - right.data.order);
+const sortedExperience = [...experience].sort(
+  (left, right) => left.data.order - right.data.order,
+);
+const sortedEducation = [...education].sort(
+  (left, right) => left.data.order - right.data.order,
+);
 
 const renderedExperience = await Promise.all(
-	sortedExperience.map(async (entry) => {
-		const { Content } = await render(entry);
+  sortedExperience.map(async (entry) => {
+    const { Content } = await render(entry);
 
-		return {
-			entry,
-			Content,
-		};
-	}),
+    return {
+      entry,
+      Content,
+    };
+  }),
 );
 
 const renderedEducation = await Promise.all(
-	sortedEducation.map(async (entry) => {
-		const { Content } = await render(entry);
+  sortedEducation.map(async (entry) => {
+    const { Content } = await render(entry);
 
-		return {
-			entry,
-			Content,
-		};
-	}),
+    return {
+      entry,
+      Content,
+    };
+  }),
 );
 ---
 
 <section class="experience-section" aria-labelledby="experience-title">
-	<div class="summary">
-		{profile.summary}
-	</div>
-	<div class="divider"></div>
-	<div class="section-head">
-		<h2 id="experience-title">Berufserfahrung</h2>
-	</div>
+  <div class="summary">
+    {profile.summary}
+  </div>
+  <div class="divider"></div>
+  <div class="section-head">
+    <h2 id="experience-title">Berufserfahrung</h2>
+  </div>
 
-	<div class="timeline">
-		{renderedExperience.map(({ entry, Content }) => (
-			<article class="experience-item">
-				<div class="card">
-					<header class="card-head">
-						<div>
-							<p class="role">{entry.data.role}</p>
-							<h3>{entry.data.company}</h3>
-						</div>
+  <div class="timeline">
+    {
+      renderedExperience.map(({ entry, Content }) => (
+        <article class="experience-item">
+          <div class="card">
+            <header class="card-head">
+              <div>
+                <p class="role">{entry.data.role}</p>
+                <h3>{entry.data.company}</h3>
+              </div>
 
-						<div class="meta">
-							<p>{entry.data.location}</p>
-							{entry.data.period ? <p>{entry.data.period}</p> : null}
-						</div>
-					</header>
+              <div class="meta">
+                <p>{entry.data.location}</p>
+                {entry.data.period ? <p>{entry.data.period}</p> : null}
+              </div>
+            </header>
 
-					<div class="content">
-						<Content />
-					</div>
-				</div>
-			</article>
-		))}
+            <div class="content">
+              <Content />
+            </div>
+          </div>
+        </article>
+      ))
+    }
 
-		<div class="divider"></div>
-		<div class="section-head">
-			<h2 class="education-title">Ausbildung</h2>
-		</div>
-		{renderedEducation.map(({ entry, Content }) => (
-			<article class="experience-item">
-				<div class="card">
-					<header class="card-head">
-						<div>
-							<h3>{entry.data.type}</h3>
-						</div>
+    <div class="divider"></div>
+    <div class="section-head">
+      <h2 class="education-title">Ausbildung</h2>
+    </div>
+    {
+      renderedEducation.map(({ entry, Content }) => (
+        <article class="experience-item">
+          <div class="card">
+            <header class="card-head">
+              <div>
+                <h3>{entry.data.type}</h3>
+              </div>
 
-						<div class="meta">
-							<p>{entry.data.location}</p>
-							{entry.data.period ? <p>{entry.data.period}</p> : null}
-						</div>
-					</header>
+              <div class="meta">
+                <p>{entry.data.location}</p>
+                {entry.data.period ? <p>{entry.data.period}</p> : null}
+              </div>
+            </header>
 
-					<div class="content">
-						<Content />
-					</div>
-				</div>
-			</article>
-		))}
-	</div>
+            <div class="content">
+              <Content />
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
 </section>
 
 <style>
-	.experience-section {
-		display: flex;
-		flex-direction: column;
-		gap: 18px;
-	}
+  .experience-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
 
-	.section-head {
-		display: flex;
-		flex-direction: column;
-		gap: 6px;
-	}
+  .section-head {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
 
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		line-height: 0.2;
-	}
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 0.2;
+  }
 
-	.timeline {
-		display: flex;
-		flex-direction: column;
-		gap: 20px;
-	}
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 
-	.card {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-		padding: 8px 18px;
-		border-radius: 18px;
-		background: rgba(73, 16, 16, 0.04);
-		border: 1px solid rgba(255, 255, 255, 0.08);
-	}
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px 18px;
+    border-radius: 18px;
+    background: rgba(73, 16, 16, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
 
-	.card-head {
-		display: flex;
-		justify-content: space-between;
-		gap: 20px;
-		align-items: start;
-	}
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: start;
+  }
 
-	.role {
-		margin: 0 0 4px;
-		font-size: 0.86rem;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-	}
+  .role {
+    margin: 0 0 4px;
+    font-size: 0.86rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
 
-	h3 {
-		margin: 0;
-		font-size: 1.1rem;
-		line-height: 1.2;
-	}
+  h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.2;
+  }
 
-	.meta {
-		text-align: right;
-		font-size: 0.92rem;
-		line-height: 1.4;
-	}
+  .meta {
+    text-align: right;
+    font-size: 0.92rem;
+    line-height: 1.4;
+  }
 
-	.meta p {
-		margin: 0;
-		white-space: nowrap;
-	}
+  .meta p {
+    margin: 0;
+    white-space: nowrap;
+  }
 
-	.content :global(p) {
-		margin: 0;
-		line-height: 1.2;
-		font-size: 0.7rem;
-	}
-	
-	.summary {
-		font-size: 0.7rem;
-		margin-bottom: -0.5rem;
-	}
+  .content :global(p) {
+    margin: 0;
+    line-height: 1.2;
+    font-size: 0.7rem;
+  }
 
-	.content :global(ul) {
-		margin: 0;
-		padding: 0.4rem 0 0 1.2rem;
-		display: flex;
-		flex-direction: column;
-		font-size: 0.8rem;
-	}
+  .summary {
+    font-size: 0.7rem;
+    margin-bottom: -0.5rem;
+  }
 
-	.content :global(li) {
-		line-height: 1.5;
-	}
+  .content :global(ul) {
+    margin: 0;
+    padding: 0.4rem 0 0 1.2rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+  }
 
-	@media (max-width: 720px) {
-		.card-head {
-			flex-direction: column;
-		}
+  .content :global(li) {
+    line-height: 1.5;
+  }
 
-		.meta {
-			text-align: left;
-		}
-	}
-	.divider {
-		height: 1px;
-		background: #cfcfcf;
-	}
-	.education-title {
-		padding: 0.4rem 0;
-	}
+  @media (max-width: 720px) {
+    .card-head {
+      flex-direction: column;
+    }
+
+    .meta {
+      text-align: left;
+    }
+  }
+  .divider {
+    height: 1px;
+    background: #cfcfcf;
+  }
+  .education-title {
+    padding: 0.4rem 0;
+  }
 </style>
