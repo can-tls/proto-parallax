@@ -43,7 +43,9 @@ const waitForServer = (host, port, timeoutMs = 15000) =>
     const browser = await chromium.launch();
     const page = await browser.newPage();
 
-    await page.goto(`http://${HOST}:${PORT}/`, { waitUntil: "networkidle" });
+    await page.goto(`http://${HOST}:${PORT}/proto-parallax/`, {
+      waitUntil: "networkidle",
+    });
 
     await page.pdf({
       path: "output.pdf",
