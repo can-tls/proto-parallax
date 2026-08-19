@@ -2,7 +2,7 @@
 company: VGV
 role: Fullstack Developer
 location: Berlin
-period: März 2023 - Okt. 2024
+period: July 2022 - Okt. 2024
 order: 3
 ---
 
