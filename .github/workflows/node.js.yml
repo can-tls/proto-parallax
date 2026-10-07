@@ -4,6 +4,8 @@
 name: Node.js CI
 
 on:
+  workflow_dispatch:
+  
   push:
     branches: ["master"]
   pull_request:
@@ -24,3 +26,5 @@ jobs:
         with:
           name: output-pdf
           path: output.pdf
+
+
