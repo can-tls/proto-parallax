@@ -10,5 +10,5 @@ Im Projektumfeld von VGV habe ich an funktionalen Webanwendungen gearbeitet und 
 
 - Entwicklung von Frontend-Komponenten für eigenes CMS in React
 - Erweiterung der eigenen Web-Präsenz mit Angular, Mongo, Express und Node
-- Verbesserung der Verarbeitung und Anbindungen des Dokumenten-Flow mit mehreren Schnittstellen in .Net
+- Verbesserung der Verarbeitung und Anbindungen des Dokumenten-Flow mit mehreren Schnittstellen in .Net und Github Actions
 - Refactoring von Monolithen in Microservices mit Docker
